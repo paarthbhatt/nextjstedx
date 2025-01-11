@@ -13,63 +13,71 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-
-// Team Member Data
 const teamMembers = [
   {
-    name: "John Doe",
+    name: "Shreeya Singh",
     role: "Organizer",
     imgSrc: "/core/IMG_7900.png",
     linkedin: "https://linkedin.com/in/johndoe",
   },
   {
-    name: "Jane Smith",
+    name: "Zain Khan",
     role: "Co-organizer",
     imgSrc: "/images/user.png",
     linkedin: "https://linkedin.com/in/janesmith",
   },
   {
-    name: "Alice Johnson",
-    role: "Speaker Liaison",
+    name: "Shivanshi Sharma",
+    role: "Editorial Curation and Speakers' Experience Core",
     imgSrc: "/images/user.png",
     linkedin: "https://linkedin.com/in/alicejohnson",
   },
   {
-    name: "Bob Lee",
-    role: "Marketing Lead",
+    name: "Kavneet Kaur",
+    role: "Sponsorship and Finance Core",
     imgSrc: "/images/user.png",
     linkedin: "https://linkedin.com/in/boblee",
   },
   {
-    name: "Charlie Brown",
-    role: "Technical Director",
+    name: "Divay Gupta",
+    role: "Design Core",
     imgSrc: "/images/user.png",
     linkedin: "https://linkedin.com/in/charliebrown",
   },
   {
-    name: "David White",
-    role: "Volunteer Coordinator",
+    name: "Koushik Reddy",
+    role: "Production Core",
     imgSrc: "/images/user.png",
     linkedin: "https://linkedin.com/in/davidwhite",
   },
   {
-    name: "Eva Green",
-    role: "Sponsorship Manager",
+    name: "Sujal Kishore",
+    role: "Tech Core",
     imgSrc: "/images/user.png",
     linkedin: "https://linkedin.com/in/evagreen",
   },
   {
-    name: "Frank Harris",
-    role: "Event Planner",
+    name: "Amy Sony",
+    role: "Creative Core",
+    imgSrc: "/images/user.png",
+    linkedin: "https://linkedin.com/in/frankharris",
+  },
+  {
+    name: "Indranil Saha",
+    role: "Marketing and Social Media Core",
+    imgSrc: "/images/user.png",
+    linkedin: "https://linkedin.com/in/frankharris",
+  },
+  {
+    name: "Aditi Saini",
+    role: "Capture and Post Production Core",
     imgSrc: "/images/user.png",
     linkedin: "https://linkedin.com/in/frankharris",
   },
 ];
-
 export default function AboutPage() {
   return (
     <main className="min-h-screen bg-black text-white">
-      {/* Hero Section */}
       <section className="relative h-[70vh] overflow-hidden">
         <div className="absolute inset-0">
           <video
@@ -153,60 +161,59 @@ export default function AboutPage() {
           <div className="absolute inset-0 bg-[#FF3A3A] transform -rotate-45"></div>
         </div>
       </section>
-
-      {/* Team Members Section */}
       <section className="py-20 bg-gradient-to-b from-[#1A0000] to-black">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold mb-12 text-center text-[#FF3A3A]">
             Our Team
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-            {teamMembers.map((member, index) => (
-              <div key={index} className="group relative">
-                <div className="relative w-full aspect-square overflow-hidden rounded-xl bg-transparent mb-4">
-                  {/* Custom X Background */}
-                  <div className="absolute inset-0 text-[#FF3A3A]/20 group-hover:text-[#FF3A3A]/30 transition-colors">
-                    <TeamMemberX />
-                  </div>
-                  {/* Member Image */}
-                  <div className="absolute inset-0 z-10">
-                    <Image
-                      src={member.imgSrc}
-                      alt={member.name}
-                      layout="fill"
-                      objectFit="cover"
-                      className="transition-transform duration-500 group-hover:scale-110"
-                    />
-                  </div>
-                </div>
-                <div className="text-center">
-                  <h3 className="text-xl font-bold text-white">
-                    {member.name}
-                  </h3>
-                  <p className="text-sm text-gray-400 mb-2">{member.role}</p>
-                  <a
-                    href={member.linkedin}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-[#FF3A3A] hover:text-[#FF3A3A]/90 inline-block"
-                  >
-                    <Linkedin className="w-6 h-6" />
-                  </a>
-                </div>
-              </div>
-            ))}
-          </div>
+  {teamMembers.map((member, index) => (
+    <div
+      key={index}
+      className={`group relative ${
+        index === 8
+          ? "md:col-start-2"
+          : index === 9
+          ? "md:col-start-3"
+          : ""
+      }`}
+    >
+      <div className="relative w-full aspect-square overflow-hidden rounded-xl bg-transparent mb-4">
+        <div className="absolute inset-0 text-[#FF3A3A]/20 group-hover:text-[#FF3A3A]/30 transition-colors">
+          <TeamMemberX />
+        </div>
+        <div className="absolute inset-0 z-10">
+          <Image
+            src={member.imgSrc}
+            alt={member.name}
+            layout="fill"
+            objectFit="cover"
+            className="transition-transform duration-500 group-hover:scale-110"
+          />
+        </div>
+      </div>
+      <div className="text-center">
+        <h3 className="text-xl font-bold text-white">{member.name}</h3>
+        <p className="text-sm text-gray-400 mb-2">{member.role}</p>
+        <a
+          href={member.linkedin}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-[#FF3A3A] hover:text-[#FF3A3A]/90 inline-block"
+        >
+          <Linkedin className="w-6 h-6" />
+        </a>
+      </div>
+    </div>
+  ))}
+</div>
+
         </div>
       </section>
-
-      {/* FAQ Section */}
       <section className="relative py-20 overflow-hidden">
-        {/* Gradient Background with z-index set to be below content */}
         <div className="absolute inset-0 bg-gradient-to-br from-black via-[#1A0000] to-[#FF3A3A] opacity-50 z-0" />
-
         <div className="relative container mx-auto px-4 z-10">
           {" "}
-          {/* Set z-index for FAQ content */}
           <h2 className="text-4xl font-bold mb-12 text-center text-white">
             Frequently Asked <span className="text-[#FF3A3A]">Questions</span>
           </h2>
@@ -288,7 +295,6 @@ export default function AboutPage() {
             </Button>
           </div>
         </div>
-        {/* Image Background with z-index set to the bottom */}
         <div className="absolute inset-0 bg-[url('/placeholder.svg?height=800&width=1920')] bg-cover bg-center opacity-10 mix-blend-overlay z-0" />
       </section>
     </main>
