@@ -1,21 +1,15 @@
 import Link from "next/link";
 import { useState } from "react";
-import { MenuIcon, XIcon } from "lucide-react"; // Assuming lucide-react is installed for icons
-
+import { MenuIcon, XIcon } from "lucide-react";
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
-
-  // Common button style for hamburger menu (without borders and with hover effect)
   const mobileLinkStyles =
     "text-white text-xl font-semibold py-3 px-6 w-full text-center hover:text-[#eb0028] transition duration-300";
-
   return (
     <header className="fixed top-0 left-0 right-0 z-50 flex justify-between items-center px-8 py-4 bg-black shadow-md">
-      {/* Logo */}
       <div className="flex items-center">
         <Link href="/">
           <img
@@ -25,11 +19,9 @@ export function Header() {
           />
         </Link>
       </div>
-
-      {/* Centered Navigation Links */}
       <nav className="flex-1 flex justify-center space-x-8 hidden md:flex">
         <Link
-          href="/"
+          href="/speakers"
           className="text-white hover:text-[#eb0028] transition duration-300"
         >
           Speakers
@@ -53,8 +45,6 @@ export function Header() {
           About
         </Link>
       </nav>
-
-      {/* Right-side Buttons: "Merchandise" and "Tickets" */}
       <div className="flex items-center space-x-4 hidden md:flex">
         <Link
           href="/merchandise"
@@ -70,8 +60,6 @@ export function Header() {
           Tickets
         </Link>
       </div>
-
-      {/* Hamburger Menu Icon for Mobile */}
       <div className="md:hidden flex items-center">
         <button onClick={toggleMenu} className="text-white focus:outline-none">
           {isMenuOpen ? (
@@ -81,8 +69,6 @@ export function Header() {
           )}
         </button>
       </div>
-
-      {/* Mobile Menu */}
       <div
         className={`${
           isMenuOpen ? "translate-x-0" : "-translate-x-full"
@@ -94,8 +80,6 @@ export function Header() {
         >
           <XIcon className="w-8 h-8" />
         </button>
-
-        {/* Centered Links - Positioned in the center */}
         <div className="flex flex-col space-y-4 flex-grow justify-center">
           <Link href="/" className={mobileLinkStyles}>
             Speakers
@@ -113,8 +97,6 @@ export function Header() {
             Merchandise
           </Link>
         </div>
-
-        {/* "Tickets" Button slightly above the bottom */}
         <div className="mt-8 mb-36">
           <Link
             href="/register"
@@ -127,5 +109,4 @@ export function Header() {
     </header>
   );
 }
-
 export default Header;
