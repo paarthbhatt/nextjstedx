@@ -56,28 +56,17 @@ const teamMembers = [
     imgSrc: "/core/IMG_7765.png",
     linkedin: "https://linkedin.com/in/evagreen",
   },
-  {
-    name: "Frank Harris",
-    role: "Event Planner",
-    imgSrc: "/core/IMG_7847.png",
-    linkedin: "https://linkedin.com/in/frankharris",
-  },
-  {
-    name: "Eva Green",
-    role: "Sponsorship Manager",
-    imgSrc: "/core/IMG_8772.png",
-    linkedin: "https://linkedin.com/in/evagreen",
-  },
+
   {
     name: "Amy Sony",
     role: "Creative Core",
-    imgSrc: "/images/user.png",
+    imgSrc: "/core/IMG_7847.png",
     linkedin: "https://linkedin.com/in/frankharris",
   },
   {
     name: "Indranil Saha",
     role: "Marketing and Social Media Core",
-    imgSrc: "/images/user.png",
+    imgSrc: "/core/IMG_8772.png",
     linkedin: "https://linkedin.com/in/frankharris",
   },
   {
@@ -168,9 +157,18 @@ export default function AboutPage() {
           <h2 className="text-4xl font-bold mb-12 text-center text-[#FF3A3A]">
             Our Team
           </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
             {teamMembers.map((member, index) => (
-              <div key={index} className="group relative">
+              <div
+                key={index}
+                className={`group relative ${
+                  index === 8
+                    ? "md:col-start-2"
+                    : index === 9
+                    ? "md:col-start-3"
+                    : ""
+                }`}
+              >
                 <div className="relative w-full aspect-square overflow-hidden rounded-xl bg-transparent mb-4">
                   {/* Custom X Background */}
                   <div className="absolute inset-0 text-[#FF3A3A]/20 group-hover:text-[#FF3A3A]/30 transition-colors">
