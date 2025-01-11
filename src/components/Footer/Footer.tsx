@@ -32,7 +32,7 @@ const Footer = () => {
             >
               Sponsors
             </Link>
-            <Link href="/talks" className="hover:underline hover:text-red-600">
+            <Link href="/rewind" className="hover:underline hover:text-red-600">
               Rewind
             </Link>
             <Link

@@ -1,10 +1,30 @@
 "use client";
 
+import { BulletinBoard } from "@/components/BulletinBoard/BulletinBoard";
 import { useState, useEffect } from "react";
 
 interface CountdownProps {
   targetDate: Date;
 }
+
+const recentEvents = [
+  {
+    title: "S.Y.M.P",
+    date: "2024-11-21",
+    images: ["/bulletin/symp1.png", "/bulletin/symp2.png"],
+  },
+  {
+    title: "Trick or Terror",
+    date: "2024-10-24",
+    images: ["/bulletin/tot1.png", "/bulletin/tot2.png"],
+  },
+];
+
+const nextEvent = {
+  title: "Panel Reveal",
+  date: "2025-01-29",
+  images: ["/path/to/image5.jpg", "/path/to/image6.jpg"],
+};
 
 const CountdownTimer: React.FC<CountdownProps> = ({ targetDate }) => {
   const [timeLeft, setTimeLeft] = useState({
@@ -70,7 +90,7 @@ export default function Hero() {
           `,
         }}
       />
-
+      <BulletinBoard recentEvents={recentEvents} nextEvent={nextEvent} />
       <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 min-h-screen">
         {/* Left side */}
         <div className="flex flex-col justify-center items-center p-12 bg-gradient-to-br from-black/95 to-black/90 backdrop-blur-sm">

@@ -23,37 +23,49 @@ const teamMembers = [
   {
     name: "Zain Khan",
     role: "Co-organizer",
-    imgSrc: "/images/user.png",
+    imgSrc: "/core/IMG_7863.png",
     linkedin: "https://linkedin.com/in/janesmith",
   },
   {
     name: "Shivanshi Sharma",
     role: "Editorial Curation and Speakers' Experience Core",
-    imgSrc: "/images/user.png",
+    imgSrc: "/core/IMG_7874.png",
     linkedin: "https://linkedin.com/in/alicejohnson",
   },
   {
     name: "Kavneet Kaur",
     role: "Sponsorship and Finance Core",
-    imgSrc: "/images/user.png",
+    imgSrc: "/core/IMG_7931.png",
     linkedin: "https://linkedin.com/in/boblee",
   },
   {
     name: "Divay Gupta",
     role: "Design Core",
-    imgSrc: "/images/user.png",
+    imgSrc: "/core/IMG_7902.png",
     linkedin: "https://linkedin.com/in/charliebrown",
   },
   {
     name: "Koushik Reddy",
     role: "Production Core",
-    imgSrc: "/images/user.png",
+    imgSrc: "/core/IMG_7868.png",
     linkedin: "https://linkedin.com/in/davidwhite",
   },
   {
     name: "Sujal Kishore",
     role: "Tech Core",
-    imgSrc: "/images/user.png",
+    imgSrc: "/core/IMG_7765.png",
+    linkedin: "https://linkedin.com/in/evagreen",
+  },
+  {
+    name: "Frank Harris",
+    role: "Event Planner",
+    imgSrc: "/core/IMG_7847.png",
+    linkedin: "https://linkedin.com/in/frankharris",
+  },
+  {
+    name: "Eva Green",
+    role: "Sponsorship Manager",
+    imgSrc: "/core/IMG_8772.png",
     linkedin: "https://linkedin.com/in/evagreen",
   },
   {
@@ -71,7 +83,7 @@ const teamMembers = [
   {
     name: "Aditi Saini",
     role: "Capture and Post Production Core",
-    imgSrc: "/images/user.png",
+    imgSrc: "/core/IMG_3158.png",
     linkedin: "https://linkedin.com/in/frankharris",
   },
 ];
@@ -79,15 +91,10 @@ export default function AboutPage() {
   return (
     <main className="min-h-screen bg-black text-white">
       <section className="relative h-[70vh] overflow-hidden">
-        <div className="absolute inset-0">
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="object-cover w-full h-full"
-          >
-            <source src="/tedx-hero-video.mp4" type="video/mp4" />
+        <div className="absolute inset-0 z-99">
+          <video autoPlay loop muted className="object-cover w-full h-full">
+            <source src="/videos/team.mp4" />
+            Your browser does not support the video tag.
           </video>
         </div>
         <div className="absolute inset-0 bg-gradient-to-r from-black via-black/50 to-transparent">
@@ -155,59 +162,48 @@ export default function AboutPage() {
             </Card>
           </div>
         </div>
-        {/* Red X Background */}
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute inset-0 bg-[#FF3A3A] transform rotate-45"></div>
-          <div className="absolute inset-0 bg-[#FF3A3A] transform -rotate-45"></div>
-        </div>
       </section>
       <section className="py-20 bg-gradient-to-b from-[#1A0000] to-black">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold mb-12 text-center text-[#FF3A3A]">
             Our Team
           </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-  {teamMembers.map((member, index) => (
-    <div
-      key={index}
-      className={`group relative ${
-        index === 8
-          ? "md:col-start-2"
-          : index === 9
-          ? "md:col-start-3"
-          : ""
-      }`}
-    >
-      <div className="relative w-full aspect-square overflow-hidden rounded-xl bg-transparent mb-4">
-        <div className="absolute inset-0 text-[#FF3A3A]/20 group-hover:text-[#FF3A3A]/30 transition-colors">
-          <TeamMemberX />
-        </div>
-        <div className="absolute inset-0 z-10">
-          <Image
-            src={member.imgSrc}
-            alt={member.name}
-            layout="fill"
-            objectFit="cover"
-            className="transition-transform duration-500 group-hover:scale-110"
-          />
-        </div>
-      </div>
-      <div className="text-center">
-        <h3 className="text-xl font-bold text-white">{member.name}</h3>
-        <p className="text-sm text-gray-400 mb-2">{member.role}</p>
-        <a
-          href={member.linkedin}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-[#FF3A3A] hover:text-[#FF3A3A]/90 inline-block"
-        >
-          <Linkedin className="w-6 h-6" />
-        </a>
-      </div>
-    </div>
-  ))}
-</div>
-
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
+            {teamMembers.map((member, index) => (
+              <div key={index} className="group relative">
+                <div className="relative w-full aspect-square overflow-hidden rounded-xl bg-transparent mb-4">
+                  {/* Custom X Background */}
+                  <div className="absolute inset-0 text-[#FF3A3A]/20 group-hover:text-[#FF3A3A]/30 transition-colors">
+                    <TeamMemberX />
+                  </div>
+                  {/* Member Image */}
+                  <div className="absolute inset-0 z-10">
+                    <Image
+                      src={member.imgSrc}
+                      alt={member.name}
+                      layout="fill"
+                      objectFit="cover"
+                      className="transition-transform duration-500 group-hover:scale-110"
+                    />
+                  </div>
+                </div>
+                <div className="text-center">
+                  <h3 className="text-xl font-bold text-white">
+                    {member.name}
+                  </h3>
+                  <p className="text-sm text-gray-400 mb-2">{member.role}</p>
+                  <a
+                    href={member.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[#FF3A3A] hover:text-[#FF3A3A]/90 inline-block"
+                  >
+                    <Linkedin className="w-6 h-6" />
+                  </a>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
       <section className="relative py-20 overflow-hidden">
