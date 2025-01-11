@@ -6,9 +6,9 @@ interface CountdownProps {
 
 const CountdownTimer: React.FC<CountdownProps> = ({ targetDate }) => {
   const [timeLeft, setTimeLeft] = useState({
-    days: 60,
+    days: 9,
     hours: 0,
-    minutes: 0,
+    minutes: 10,
     seconds: 0,
   });
 
