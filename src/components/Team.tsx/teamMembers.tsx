@@ -13,48 +13,46 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-
-// Team Member Data
 const teamMembers = [
   {
-    name: "John Doe",
+    name: "Shreeya Singh",
     role: "Organizer",
     imgSrc: "/core/IMG_7900.png",
     linkedin: "https://linkedin.com/in/johndoe",
   },
   {
-    name: "Jane Smith",
+    name: "Zain Khan",
     role: "Co-organizer",
     imgSrc: "/core/IMG_7863.png",
     linkedin: "https://linkedin.com/in/janesmith",
   },
   {
-    name: "Alice Johnson",
-    role: "Speaker Liaison",
+    name: "Shivanshi Sharma",
+    role: "Editorial Curation and Speakers' Experience Core",
     imgSrc: "/core/IMG_7874.png",
     linkedin: "https://linkedin.com/in/alicejohnson",
   },
   {
-    name: "Bob Lee",
-    role: "Marketing Lead",
+    name: "Kavneet Kaur",
+    role: "Sponsorship and Finance Core",
     imgSrc: "/core/IMG_7931.png",
     linkedin: "https://linkedin.com/in/boblee",
   },
   {
-    name: "Charlie Brown",
-    role: "Technical Director",
+    name: "Divay Gupta",
+    role: "Design Core",
     imgSrc: "/core/IMG_7902.png",
     linkedin: "https://linkedin.com/in/charliebrown",
   },
   {
-    name: "David White",
-    role: "Volunteer Coordinator",
+    name: "Koushik Reddy",
+    role: "Production Core",
     imgSrc: "/core/IMG_7868.png",
     linkedin: "https://linkedin.com/in/davidwhite",
   },
   {
-    name: "Eva Green",
-    role: "Sponsorship Manager",
+    name: "Sujal Kishore",
+    role: "Tech Core",
     imgSrc: "/core/IMG_7765.png",
     linkedin: "https://linkedin.com/in/evagreen",
   },
@@ -71,17 +69,27 @@ const teamMembers = [
     linkedin: "https://linkedin.com/in/evagreen",
   },
   {
-    name: "Frank Harris",
-    role: "Event Planner",
+    name: "Amy Sony",
+    role: "Creative Core",
+    imgSrc: "/images/user.png",
+    linkedin: "https://linkedin.com/in/frankharris",
+  },
+  {
+    name: "Indranil Saha",
+    role: "Marketing and Social Media Core",
+    imgSrc: "/images/user.png",
+    linkedin: "https://linkedin.com/in/frankharris",
+  },
+  {
+    name: "Aditi Saini",
+    role: "Capture and Post Production Core",
     imgSrc: "/core/IMG_3158.png",
     linkedin: "https://linkedin.com/in/frankharris",
   },
 ];
-
 export default function AboutPage() {
   return (
     <main className="min-h-screen bg-black text-white">
-      {/* Hero Section */}
       <section className="relative h-[70vh] overflow-hidden">
         <div className="absolute inset-0 z-99">
           <video autoPlay loop muted className="object-cover w-full h-full">
@@ -155,8 +163,6 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
-
-      {/* Team Members Section */}
       <section className="py-20 bg-gradient-to-b from-[#1A0000] to-black">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold mb-12 text-center text-[#FF3A3A]">
@@ -200,15 +206,10 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
-
-      {/* FAQ Section */}
       <section className="relative py-20 overflow-hidden">
-        {/* Gradient Background with z-index set to be below content */}
         <div className="absolute inset-0 bg-gradient-to-br from-black via-[#1A0000] to-[#FF3A3A] opacity-50 z-0" />
-
         <div className="relative container mx-auto px-4 z-10">
           {" "}
-          {/* Set z-index for FAQ content */}
           <h2 className="text-4xl font-bold mb-12 text-center text-white">
             Frequently Asked <span className="text-[#FF3A3A]">Questions</span>
           </h2>
@@ -290,7 +291,6 @@ export default function AboutPage() {
             </Button>
           </div>
         </div>
-        {/* Image Background with z-index set to the bottom */}
         <div className="absolute inset-0 bg-[url('/placeholder.svg?height=800&width=1920')] bg-cover bg-center opacity-10 mix-blend-overlay z-0" />
       </section>
     </main>
