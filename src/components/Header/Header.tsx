@@ -41,7 +41,7 @@ export function Header() {
           Sponsors
         </Link>
         <Link
-          href="/talks"
+          href="/rewind"
           className="text-white hover:text-[#eb0028] transition duration-300"
         >
           Rewind
@@ -103,7 +103,7 @@ export function Header() {
           <Link href="/sponsor" className={mobileLinkStyles}>
             Sponsors
           </Link>
-          <Link href="/talks" className={mobileLinkStyles}>
+          <Link href="/rewind" className={mobileLinkStyles}>
             Rewind
           </Link>
           <Link href="/about" className={mobileLinkStyles}>
