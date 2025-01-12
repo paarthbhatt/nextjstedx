@@ -8,6 +8,8 @@ import { Description } from "@/components/desc/desc";
 import { SpeakersList } from "@/components/SpeakersList/SpeakersList";
 import { Gallery } from "@/components/ui/gallery";
 import TopBanner from "@/components/XHero/XHero";
+import dynamic from "next/dynamic";
+import { FC } from 'react';
 
 // Sample data for each year
 const yearContent: {
@@ -238,7 +240,9 @@ const yearContent: {
     ],
   },
 };
-
+const GalleryApp = dynamic(() => import('@/components/App').then(mod => mod.default), {
+  ssr: false, // Optional: Set to false if you want to disable server-side rendering for this component
+});
 export default function RewindPage() {
   const [selectedYear, setSelectedYear] = useState<number>(2024);
   const [isLoading, setIsLoading] = useState(true);
@@ -260,43 +264,11 @@ export default function RewindPage() {
 
   return (
     <main className="min-h-screen bg-black text-white">
-      {/* Hero Section */}
       <TopBanner />
-      {/* <section className="relative h-[70vh] overflow-hidden">
-        <Image
-          src="/rewind-hero.jpg"
-          alt="TEDx Rewind"
-          layout="fill"
-          objectFit="cover"
-          className="z-0"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-black via-black/50 to-transparent z-10">
-          <div className="container mx-auto px-4 h-full flex items-center">
-            <div className="w-full max-w-4xl">
-              <motion.h1
-                className="text-5xl md:text-6xl font-bold mb-4"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8 }}
-              >
-                TEDx <span className="text-[#FF3A3A]">Rewind</span>
-              </motion.h1>
-              <motion.p
-                className="text-xl mb-8"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.4, duration: 0.8 }}
-              >
-                Revisit the ideas that shaped our past events.
-              </motion.p>
-            </div>
-          </div>
-        </div>
-      </section> */}
 
       {/* Year Selector */}
       <section className="bg-[#1A0000] py-4 sticky top-0 z-20">
-        <div className="container mx-auto ">
+        <div className="container mx-auto">
           <YearSelector
             onSelectYear={setSelectedYear}
             selectedYear={selectedYear}
@@ -329,7 +301,10 @@ export default function RewindPage() {
               <ThemeImage theme={content.theme} imageSrc={content.themeImage} />
               <Description description={content.description} />
               <SpeakersList speakers={content.speakers} />
-              <Gallery images={content.gallery} />
+              {/* Replace Gallery with the App component */}
+              <div className="h-[80vh]">
+                <GalleryApp />
+              </div>
             </div>
           </motion.section>
         )}
