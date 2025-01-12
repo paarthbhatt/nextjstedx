@@ -72,11 +72,11 @@ const Hero = () => {
             16% 0%
           );
         }
-        .black-overlay {
-          position: absolute;
-          inset: 0;
-          background-color: rgba(0, 0, 0, 0.7); /* Increased opacity */
-        }
+        // .black-overlay {
+        //   position: absolute;
+        //   inset: 0;
+        //   background-color: rgba(0, 0, 0, 0.7); /* Increased opacity */
+        // }
       `}</style>
 
       {/* Hero section */}
@@ -106,7 +106,8 @@ const Hero = () => {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.4, duration: 0.8 }}
           >
-            Revisit the ideas that shaped our past events.
+            <span className="text-[#030101]">Revisit the ideas</span> that
+            shaped our past events.
           </motion.p>
         </div>
       </div>

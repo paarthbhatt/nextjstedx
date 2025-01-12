@@ -1,18 +1,96 @@
 import React, { useState } from "react";
 const demoData = [
-  { name: "John Doe", designation: "Software Engineer", image: "/images/user.png", description: "John is an expert in software development, specializing in full-stack technologies." },
-  { name: "Jane Smith", designation: "Product Manager", image: "/core/IMG_7900.png", description: "Jane has a passion for creating customer-centric products and has led numerous successful launches." },
-  { name: "Alex Johnson", designation: "Data Scientist", image: "/images/user.png", description: "Alex leverages data to extract insights and drive decision-making in businesses." },
-  { name: "Emily Davis", designation: "UX Designer", image: "/images/user.png", description: "Emily focuses on designing intuitive and engaging user experiences." },
-  { name: "Michael Brown", designation: "Business Analyst", image: "/images/user.png", description: "Michael helps companies streamline their operations through data analysis and process improvements." },
-  { name: "Sophia Wilson", designation: "AI Researcher", image: "/images/user.png", description: "Sophia is working on cutting-edge AI technologies to improve machine learning systems." },
-  { name: "Daniel Martinez", designation: "Marketing Specialist", image: "/images/user.png", description: "Daniel is passionate about digital marketing and has expertise in growth hacking strategies." },
-  { name: "Olivia Garcia", designation: "Financial Consultant", image: "/images/user.png", description: "Olivia helps businesses optimize their financial strategies and improve profitability." },
-  { name: "Liam Anderson", designation: "Cloud Architect", image: "/images/user.png", description: "Liam is an expert in designing scalable cloud infrastructure for enterprise-level applications." },
-  { name: "Emma Thomas", designation: "Cybersecurity Expert", image: "/images/user.png", description: "Emma ensures the security and integrity of digital systems by implementing robust security measures." },
-  { name: "James Moore", designation: "Content Strategist", image: "/images/user.png", description: "James specializes in crafting compelling content strategies to increase brand awareness." },
-  { name: "Charlotte Taylor", designation: "Creative Director", image: "/images/user.png", description: "Charlotte leads creative teams to deliver innovative and visually stunning designs." },
-  { name: "Benjamin White", designation: "Operations Manager", image: "/images/user.png", description: "Benjamin is skilled in optimizing business processes and improving operational efficiency." },
+  {
+    name: "John Doe",
+    designation: "Software Engineer",
+    image: "/images/user.png",
+    description:
+      "John is an expert in software development, specializing in full-stack technologies.",
+  },
+  {
+    name: "Jane Smith",
+    designation: "Product Manager",
+    image: "/core/IMG_7900.png",
+    description:
+      "Jane has a passion for creating customer-centric products and has led numerous successful launches.",
+  },
+  {
+    name: "Alex Johnson",
+    designation: "Data Scientist",
+    image: "/images/user.png",
+    description:
+      "Alex leverages data to extract insights and drive decision-making in businesses.",
+  },
+  {
+    name: "Emily Davis",
+    designation: "UX Designer",
+    image: "/images/user.png",
+    description:
+      "Emily focuses on designing intuitive and engaging user experiences.",
+  },
+  {
+    name: "Michael Brown",
+    designation: "Business Analyst",
+    image: "/images/user.png",
+    description:
+      "Michael helps companies streamline their operations through data analysis and process improvements.",
+  },
+  {
+    name: "Sophia Wilson",
+    designation: "AI Researcher",
+    image: "/images/user.png",
+    description:
+      "Sophia is working on cutting-edge AI technologies to improve machine learning systems.",
+  },
+  {
+    name: "Daniel Martinez",
+    designation: "Marketing Specialist",
+    image: "/images/user.png",
+    description:
+      "Daniel is passionate about digital marketing and has expertise in growth hacking strategies.",
+  },
+  {
+    name: "Olivia Garcia",
+    designation: "Financial Consultant",
+    image: "/images/user.png",
+    description:
+      "Olivia helps businesses optimize their financial strategies and improve profitability.",
+  },
+  {
+    name: "Liam Anderson",
+    designation: "Cloud Architect",
+    image: "/images/user.png",
+    description:
+      "Liam is an expert in designing scalable cloud infrastructure for enterprise-level applications.",
+  },
+  {
+    name: "Emma Thomas",
+    designation: "Cybersecurity Expert",
+    image: "/images/user.png",
+    description:
+      "Emma ensures the security and integrity of digital systems by implementing robust security measures.",
+  },
+  {
+    name: "James Moore",
+    designation: "Content Strategist",
+    image: "/images/user.png",
+    description:
+      "James specializes in crafting compelling content strategies to increase brand awareness.",
+  },
+  {
+    name: "Charlotte Taylor",
+    designation: "Creative Director",
+    image: "/images/user.png",
+    description:
+      "Charlotte leads creative teams to deliver innovative and visually stunning designs.",
+  },
+  {
+    name: "Benjamin White",
+    designation: "Operations Manager",
+    image: "/images/user.png",
+    description:
+      "Benjamin is skilled in optimizing business processes and improving operational efficiency.",
+  },
 ];
 const CardGrid: React.FC = () => {
   const [selectedCard, setSelectedCard] = useState<any | null>(null);
@@ -24,8 +102,7 @@ const CardGrid: React.FC = () => {
   };
 
   return (
-    <div style={{ marginTop: "100px" }} className="px-6 py-10">
-      <h1 className="text-white text-2xl font-bold mb-6">Speakers:</h1>
+    <div style={{ marginTop: "100px" }} className="px-6">
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 justify-items-center">
         {demoData.slice(0, -1).map((item, index) => (
           <div
