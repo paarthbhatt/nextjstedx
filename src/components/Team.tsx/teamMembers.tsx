@@ -13,7 +13,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import RippleButton from "@/components/ui/ripple-button";
+
 const teamMembers = [
   {
     name: "Shreeya Singh",
