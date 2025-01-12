@@ -30,6 +30,7 @@ export function Header() {
           href="/sponsor"
           className="text-white hover:text-[#eb0028] transition duration-300"
         >
+          
           Sponsors
         </Link>
         <Link

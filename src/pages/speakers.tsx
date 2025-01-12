@@ -12,24 +12,21 @@ const SpeakersPage: React.FC = () => {
     if (!vantaEffect && typeof window !== "undefined") {
       (async () => {
         // @ts-ignore: Suppressing type error for the Vanta module
-        const module = await import("vanta/src/vanta.clouds");
+        const module = await import("vanta/src/vanta.fog");
         VANTA = module.default;
         setVantaEffect(
-          VANTA({
-            el: vantaRef.current,
-            mouseControls: true,
-            touchControls: true,
-            gyroControls: false,
-            minHeight: 200.0,
-            minWidth: 200.0,
-            backgroundColor: 0xc51c1c,
-            skyColor: 0x555669,
-            cloudColor: 0x370d0d,
-            cloudShadowColor: 0xd29b9b,
-            sunColor: 0xe3cd6a,
-            sunGlareColor: 0x842b2b,
-            sunlightColor: 0xffdada,
-          })
+            VANTA({
+                el: vantaRef.current,
+                mouseControls: true,
+                touchControls: true,
+                gyroControls: false,
+                minHeight: 200.0,
+                minWidth: 200.0,
+                highlightColor: 0xff0000,
+                midtoneColor: 0x4b160e,
+                lowlightColor: 0x660808,
+                baseColor: 0x1e0e0e,
+              })
         );
       })();
     }
@@ -83,16 +80,18 @@ const SpeakersPage: React.FC = () => {
       </div>
 
       {/* Speakers Cards Section */}
-      <div
+        <div
         style={{
-          position: "relative",
-          zIndex: 2,
-          backgroundColor: "#0a0a0a", // Black background for cards section
-          color: "white",
+            position: "relative",
+            zIndex: 2,
+            backgroundColor: "#0a0a0a", // Black background for cards section
+            color: "white",
+            paddingTop: "1rem", // Reduced space above cards
+            paddingBottom: "3rem", // Added space below the last card
         }}
-      >
-        <CardGrid />
-      </div>
+    >
+  <CardGrid />
+</div>
     </div>
   );
 };

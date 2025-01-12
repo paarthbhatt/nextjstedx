@@ -6,10 +6,9 @@ import { YearSelector } from "@/components/YearSelector/YearSelector";
 import { ThemeImage } from "@/components/ThemeImage/ThemeImage";
 import { Description } from "@/components/desc/desc";
 import { SpeakersList } from "@/components/SpeakersList/SpeakersList";
-import { Gallery } from "@/components/ui/gallery";
 import TopBanner from "@/components/XHero/XHero";
 import dynamic from "next/dynamic";
-import { FC } from 'react';
+
 
 // Sample data for each year
 const yearContent: {
