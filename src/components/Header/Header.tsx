@@ -39,6 +39,12 @@ export function Header() {
           Rewind
         </Link>
         <Link
+          href="/rewind"
+          className="text-white hover:text-[#eb0028] transition duration-300"
+        >
+          Pre-Events
+        </Link>
+        <Link
           href="/about"
           className="text-white hover:text-[#eb0028] transition duration-300"
         >

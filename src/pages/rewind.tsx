@@ -1,13 +1,13 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { YearSelector } from "@/components/YearSelector/YearSelector";
 import { ThemeImage } from "@/components/ThemeImage/ThemeImage";
 import { Description } from "@/components/desc/desc";
 import { SpeakersList } from "@/components/SpeakersList/SpeakersList";
 import { Gallery } from "@/components/ui/gallery";
+import TopBanner from "@/components/XHero/XHero";
 
 // Sample data for each year
 const yearContent: {
@@ -208,10 +208,39 @@ const yearContent: {
       "/gallery/2023-3.jpg",
     ],
   },
+  2024: {
+    theme: "Saptaranga",
+    description:
+      "In 2023, TEDxYouth@XYZ focused on the power of collaboration and interdisciplinary approaches.",
+    themeImage: "/themes/saptaranga.png",
+    speakers: [
+      {
+        name: "Nikita Sharma",
+        topic: "Biomimicry in Design",
+        image: "/prev-speakers/nikita24.png",
+        socialLinks: {},
+        tedTalkUrl:
+          "https://www.ted.com/talks/olivia_martinez_biomimicry_in_design",
+      },
+      {
+        name: "Vijendra Chauhan",
+        topic: "AI and Human Creativity",
+        image: "/prev-speakers/vijendra24.png",
+        socialLinks: {},
+        tedTalkUrl:
+          "https://www.ted.com/talks/ryan_patel_ai_and_human_creativity",
+      },
+    ],
+    gallery: [
+      "/gallery/2023-1.jpg",
+      "/gallery/2023-2.jpg",
+      "/gallery/2023-3.jpg",
+    ],
+  },
 };
 
 export default function RewindPage() {
-  const [selectedYear, setSelectedYear] = useState<number>(2019);
+  const [selectedYear, setSelectedYear] = useState<number>(2024);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -232,7 +261,8 @@ export default function RewindPage() {
   return (
     <main className="min-h-screen bg-black text-white">
       {/* Hero Section */}
-      <section className="relative h-[50vh] overflow-hidden">
+      <TopBanner />
+      {/* <section className="relative h-[70vh] overflow-hidden">
         <Image
           src="/rewind-hero.jpg"
           alt="TEDx Rewind"
@@ -262,7 +292,7 @@ export default function RewindPage() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Year Selector */}
       <section className="bg-[#1A0000] py-4 sticky top-0 z-20">

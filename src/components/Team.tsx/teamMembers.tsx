@@ -13,6 +13,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+
 const teamMembers = [
   {
     name: "Shreeya Singh",

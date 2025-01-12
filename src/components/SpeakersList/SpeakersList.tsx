@@ -22,8 +22,8 @@ interface SpeakersListProps {
 export const SpeakersList: React.FC<SpeakersListProps> = ({ speakers }) => {
   return (
     <div className="mb-12">
-      <h3 className="text-2xl font-bold mb-6 text-[#FF3A3A]">Speakers</h3>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <h3 className="text-2xl font-bold mb-6 text-[#FF3A3A]">Talks</h3>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
         {speakers.map((speaker, index) => (
           <motion.div
             key={index}
@@ -38,6 +38,7 @@ export const SpeakersList: React.FC<SpeakersListProps> = ({ speakers }) => {
                 alt={speaker.name}
                 layout="fill"
                 objectFit="cover"
+                objectPosition="0px -50px"
                 className="transition-transform duration-300 group-hover:scale-110"
               />
               <div className="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
