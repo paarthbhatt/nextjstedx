@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import dynamic from "next/dynamic";
 import CardGrid from "../components/Speakers/speakerGrid"; // Keep CardGrid import here
+import CardSpeaker from "@/components/speakersGrid/speakersGrid";
 
 const SpeakersPage: React.FC = () => {
   const [vantaEffect, setVantaEffect] = useState<any>(null);
@@ -12,7 +13,7 @@ const SpeakersPage: React.FC = () => {
     if (!vantaEffect && typeof window !== "undefined") {
       (async () => {
         // @ts-ignore: Suppressing type error for the Vanta module
-        const module = await import("vanta/src/vanta.clouds");
+        const module = await import("vanta/src/vanta.fog");
         VANTA = module.default;
         setVantaEffect(
           VANTA({
@@ -22,13 +23,10 @@ const SpeakersPage: React.FC = () => {
             gyroControls: false,
             minHeight: 200.0,
             minWidth: 200.0,
-            backgroundColor: 0xc51c1c,
-            skyColor: 0x555669,
-            cloudColor: 0x370d0d,
-            cloudShadowColor: 0xd29b9b,
-            sunColor: 0xe3cd6a,
-            sunGlareColor: 0x842b2b,
-            sunlightColor: 0xffdada,
+            highlightColor: 0xff0000,
+            midtoneColor: 0x4b160e,
+            lowlightColor: 0x660808,
+            baseColor: 0x552727,
           })
         );
       })();
@@ -83,7 +81,7 @@ const SpeakersPage: React.FC = () => {
       </div>
 
       {/* Speakers Cards Section */}
-      <div
+      {/* <div
         style={{
           position: "relative",
           zIndex: 2,
@@ -92,6 +90,9 @@ const SpeakersPage: React.FC = () => {
         }}
       >
         <CardGrid />
+      </div> */}
+      <div className="relative z-10 bg-black">
+        <CardSpeaker />
       </div>
     </div>
   );
