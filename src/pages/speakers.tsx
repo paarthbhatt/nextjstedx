@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import dynamic from "next/dynamic";
-import CardGrid from "../components/Speakers/speakerGrid"; // Keep CardGrid import here
+import dynamic from "next/dynamic";;
 import CardSpeaker from "@/components/speakersGrid/speakersGrid";
 
 const SpeakersPage: React.FC = () => {
@@ -12,7 +11,7 @@ const SpeakersPage: React.FC = () => {
 
     if (!vantaEffect && typeof window !== "undefined") {
       (async () => {
-        // @ts-ignore: Suppressing type error for the Vanta module
+        // @ts-ignore:
         const module = await import("vanta/src/vanta.fog");
         VANTA = module.default;
         setVantaEffect(
@@ -81,17 +80,9 @@ const SpeakersPage: React.FC = () => {
       </div>
 
       {/* Speakers Cards Section */}
-      <div
-        style={{
-            position: "relative",
-            zIndex: 2,
-            backgroundColor: "#0a0a0a", // Black background for cards section
-            color: "white",
-            paddingTop: "1rem", // Reduced space above cards
-            paddingBottom: "3rem", // Added space below the last card
-        }}
+      <div className="relative z-10 bg-black"
       >
-        <CardGrid />
+        <CardSpeaker />
       </div>
     </div>
   );
