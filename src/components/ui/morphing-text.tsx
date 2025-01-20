@@ -98,14 +98,17 @@ interface MorphingTextProps {
 
 const Texts: React.FC<Pick<MorphingTextProps, "texts">> = ({ texts }) => {
   const { text1Ref, text2Ref } = useMorphingText(texts);
+
   return (
     <>
+      {/* First text layer */}
       <span
-        className="absolute inset-x-0 top-0 m-auto inline-block w-full"
+        className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center w-auto whitespace-nowrap "
         ref={text1Ref}
       />
+      {/* Second text layer */}
       <span
-        className="absolute inset-x-0 top-0 m-auto inline-block w-full"
+        className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center w-auto whitespace-nowrap "
         ref={text2Ref}
       />
     </>
@@ -136,7 +139,7 @@ const SvgFilters: React.FC = () => (
 const MorphingText: React.FC<MorphingTextProps> = ({ texts, className }) => (
   <div
     className={cn(
-      "relative mx-auto h-16 w-full max-w-screen-md text-center font-sans text-[40pt] font-bold leading-none [filter:url(#threshold)_blur(0.6px)] md:h-24 lg:text-[6rem] flex items-center",
+      "relative mx-auto h-16 w-full max-w-screen-md text-center font-sans text-[30pt] font-bold leading-none [filter:url(#threshold)_blur(0.6px)] md:h-24 lg:text-[6rem] flex items-center",
       className
     )}
   >
@@ -144,5 +147,4 @@ const MorphingText: React.FC<MorphingTextProps> = ({ texts, className }) => (
     <SvgFilters />
   </div>
 );
-
 export default MorphingText;

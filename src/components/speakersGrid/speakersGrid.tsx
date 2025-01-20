@@ -12,7 +12,7 @@ const speakers = [
   {
     name: "John Doe",
     title: "Climate Change Activist",
-    image: "/currSpeaker/neo.png",
+    image: "/currSpeaker/ron2.png",
     longDescription:
       "John Doe is a tireless climate change activist whose work has inspired millions to take action against global warming. Through his grassroots campaigns and collaborations with leading environmental organizations, John has been instrumental in promoting sustainable living practices and pushing for policy changes to address the climate crisis. His innovative approaches to community engagement have created a ripple effect of positive environmental action across the globe.",
   },

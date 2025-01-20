@@ -25,13 +25,13 @@ const SpeakerCard: React.FC<SpeakerCardProps> = ({
     <div className="relative">
       {/* Card */}
       <motion.div
-        className="relative group overflow-hidden rounded-lg bg-black shadow-lg cursor-pointer h-96 w-64"
-        whileHover={{ scale: 1.05 }}
-        transition={{ duration: 0.3 }}
+        className="relative group overflow-hidden rounded-xl bg-gradient-to-br from-gray-800 to-black shadow-lg cursor-pointer h-96 w-[90%] transform transition-transform"
+        whileHover={{ scale: 1.1 }}
+        transition={{ duration: 0.2 }}
         onClick={toggleExpand}
       >
         {/* Decorative X */}
-        <div className="absolute inset-0 top-[-96px] bg-red-600 opacity-40 z-0">
+        <div className="absolute inset-0 top-[-96px] bg-slate-800 opacity-40 z-0">
           <svg className="w-full h-full scale-125" viewBox="0 0 100 100">
             <clipPath id="halfXClip">
               <rect x="0" y="0" width="50" height="100" />
@@ -44,29 +44,27 @@ const SpeakerCard: React.FC<SpeakerCardProps> = ({
             />
           </svg>
         </div>
-
         {/* Image Above */}
-        <div className="relative w-full h-[70%]">
+        <div className="relative w-full h-[70%] grayscale group-hover:grayscale-0 transition-all duration-200">
           {" "}
-          {/* Adjusted height to 70% */}
+          {/* Faster grayscale transition */}
           <Image
             src={image || "/placeholder.svg"}
             alt={name}
             layout="fill"
             objectFit="cover"
-            objectPosition="top" // Ensures the top part of the image is visible
+            objectPosition="top"
             className="rounded-t-lg"
           />
         </div>
-
         {/* Name and Details at Bottom */}
         <div className="p-4 h-[30%] flex flex-col justify-start items-center text-center bg-black">
           <h3 className="text-xl font-bold text-white mb-1">{name}</h3>
           <p className="text-red-600">{title}</p>
         </div>
-
         {/* Hover Effect */}
-        <div className="absolute bottom-0 left-0 w-full h-1 bg-red-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
+        <div className="absolute bottom-0 left-0 w-full h-1 bg-red-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-10" />{" "}
+        {/* Faster hover line transition */}
       </motion.div>
 
       {/* Expanded View */}
@@ -77,25 +75,27 @@ const SpeakerCard: React.FC<SpeakerCardProps> = ({
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-90"
+            className="fixed inset-0 z-50 flex items-end justify-center bg-black bg-opacity-90"
             onClick={toggleExpand}
           >
-            <div className="relative w-1/2 h-full">
+            <div className="relative w-full h-[85%] max-w-[900px]">
               {/* Fullscreen Image */}
               <Image
                 src={image || "/placeholder.svg"}
                 alt={name}
-                layout="fill"
+                height={900}
+                width={900}
                 objectFit="cover"
+                objectPosition="center"
                 quality={100}
               />
 
               {/* Gradient Overlay and Details */}
               <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-transparent">
                 <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
-                  <h2 className="text-4xl font-bold mb-2">{name}</h2>
+                  <h2 className="text-6xl font-bold mb-2">{name}</h2>
                   <p className="text-2xl text-red-600 mb-4">{title}</p>
-                  <p className="text-lg leading-relaxed max-w-3xl">
+                  <p className="text-lg leading-relaxed max-w-6xl">
                     {longDescription}
                   </p>
                 </div>

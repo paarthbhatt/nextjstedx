@@ -1,13 +1,16 @@
 import Link from "next/link";
 import { useState } from "react";
 import { MenuIcon, XIcon } from "lucide-react";
+
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
+
   const mobileLinkStyles =
     "text-white text-xl font-semibold py-3 px-6 w-full text-center hover:text-[#eb0028] transition duration-300";
+
   return (
     <header className="fixed top-0 left-0 right-0 z-50 flex justify-between items-center px-8 py-4 bg-black shadow-md">
       <div className="flex items-center">
@@ -19,6 +22,8 @@ export function Header() {
           />
         </Link>
       </div>
+
+      {/* Desktop Navbar */}
       <nav className="flex-1 flex justify-center space-x-8 hidden md:flex">
         <Link
           href="/speakers"
@@ -51,6 +56,8 @@ export function Header() {
           About
         </Link>
       </nav>
+
+      {/* Desktop Call to Action Buttons */}
       <div className="flex items-center space-x-4 hidden md:flex">
         <Link
           href="/merchandise"
@@ -66,6 +73,8 @@ export function Header() {
           Tickets
         </Link>
       </div>
+
+      {/* Mobile Hamburger Button */}
       <div className="md:hidden flex items-center">
         <button onClick={toggleMenu} className="text-white focus:outline-none">
           {isMenuOpen ? (
@@ -75,10 +84,12 @@ export function Header() {
           )}
         </button>
       </div>
+
+      {/* Mobile Menu */}
       <div
         className={`${
           isMenuOpen ? "translate-x-0" : "-translate-x-full"
-        } fixed inset-0 bg-black bg-opacity-90 z-50 flex flex-col justify-between items-center transition-all duration-500`}
+        } fixed inset-0 bg-black bg-opacity-90 z-50 flex flex-col justify-between items-center transition-all duration-500 transform`}
       >
         <button
           onClick={toggleMenu}
@@ -86,8 +97,10 @@ export function Header() {
         >
           <XIcon className="w-8 h-8" />
         </button>
-        <div className="flex flex-col space-y-4 flex-grow justify-center">
-          <Link href="/" className={mobileLinkStyles}>
+
+        <div className="flex flex-col space-y-6 flex-grow justify-center">
+          {/* Same links as desktop */}
+          <Link href="/speakers" className={mobileLinkStyles}>
             Speakers
           </Link>
           <Link href="/sponsor" className={mobileLinkStyles}>
@@ -96,6 +109,9 @@ export function Header() {
           <Link href="/rewind" className={mobileLinkStyles}>
             Rewind
           </Link>
+          <Link href="/preevents" className={mobileLinkStyles}>
+            Pre-Events
+          </Link>
           <Link href="/about" className={mobileLinkStyles}>
             About
           </Link>
@@ -103,16 +119,21 @@ export function Header() {
             Merchandise
           </Link>
         </div>
-        <div className="mt-8 mb-36">
-          <Link
-            href="/register"
-            className="bg-[#eb0028] text-white px-40 py-3 rounded-md text-2xl w-auto text-center hover:bg-[#fc4f4f] transition-colors duration-300"
-          >
-            Tickets
-          </Link>
-        </div>
+
+        {/* Tickets Button (only visible when the menu is open) */}
+        {isMenuOpen && (
+          <div className="mt-8 mb-16 w-full flex justify-center">
+            <Link
+              href="/register"
+              className="bg-[#eb0028] text-white px-32 py-3 rounded-md text-2xl text-center hover:bg-[#fc4f4f] transition-colors duration-300"
+            >
+              Tickets
+            </Link>
+          </div>
+        )}
       </div>
     </header>
   );
 }
+
 export default Header;

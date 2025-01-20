@@ -24,13 +24,12 @@ interface Event {
 
 const events: Event[] = [
   {
-    id: "event1",
-    title: "TEDx Workshop: Public Speaking Mastery",
-    date: "2023-08-15",
-    time: "14:00 - 17:00",
-    location: "City Library Auditorium",
-    description:
-      "Join us for an intensive workshop on mastering the art of public speaking. Learn techniques from experienced TEDx speakers and improve your presentation skills.",
+    id: "Panel Reveal",
+    title: "Panel Reveal",
+    date: "2025-01-29",
+    time: "18:00 - 19:00",
+    location: "Auditorium",
+    description: "lorem  ipsum dolor sit amet, consectetur adipis",
     images: ["/pre-events/workshop1.jpg", "/pre-events/workshop2.jpg"],
     status: "upcoming",
   },
@@ -81,7 +80,7 @@ const PreEventsPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-black text-white relative">
       {/* Hero Section */}
-      <section className="relative h-[80vh] overflow-hidden flex flex-col items-center justify-center z-20 text-center">
+      <section className="relative h-[50vh] md:h-[80vh] overflow-hidden flex flex-col items-center justify-center z-20 text-center">
         {/* Animated background limited to hero */}
         <div className="absolute inset-0 z-0 overflow-hidden">
           <AnimatedBackground />
@@ -98,7 +97,7 @@ const PreEventsPage: React.FC = () => {
         <div className="relative z-20 text-center">
           {/* Larger and perfectly centered title */}
           <motion.h1
-            className="text-8xl font-extrabold mb-6"
+            className="text-6xl md:text-8xl font-extrabold mb-6"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -108,7 +107,7 @@ const PreEventsPage: React.FC = () => {
 
           {/* Morphing text moved to the next line */}
           <motion.div
-            className=" text-white whitespace-nowrap"
+            className=" text-white "
             style={{ marginTop: "20px" }}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}

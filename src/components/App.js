@@ -1,5 +1,5 @@
 import * as THREE from "three";
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { Image, ScrollControls, Scroll, useScroll } from "@react-three/drei";
 import { proxy, useSnapshot } from "valtio";
@@ -24,10 +24,6 @@ function Minimap() {
   const { height } = useThree((state) => state.viewport);
   useFrame((state, delta) => {
     ref.current.children.forEach((child, index) => {
-      // Give me a value between 0 and 1
-      //   starting at the position of my item
-      //   ranging across 4 / total length
-      //   make it a sine, so the value goes from 0 to 1 to 0.
       const y = scroll.curve(
         index / urls.length - 1.5 / urls.length,
         4 / urls.length
@@ -123,13 +119,34 @@ function Items({ w = 0.7, gap = 0.15 }) {
   );
 }
 
-export const App = () => (
-  <Canvas
-    gl={{ antialias: false }}
-    dpr={[1, 1.5]}
-    onPointerMissed={() => (state.clicked = null)}
-  >
-    <Items />
-  </Canvas>
-);
+export const App = () => {
+  const [loading, setLoading] = useState(true);
+
+  // Simulate loading
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setLoading(false);
+    }, 2000); // Simulate a 2-second load
+    return () => clearTimeout(timeout);
+  }, []);
+
+  if (loading) {
+    return (
+      <div className="flex h-screen items-center justify-center text-2xl font-bold">
+        Gallery Loading...
+      </div>
+    );
+  }
+
+  return (
+    <Canvas
+      gl={{ antialias: false }}
+      dpr={[1, 1.5]}
+      onPointerMissed={() => (state.clicked = null)}
+    >
+      <Items />
+    </Canvas>
+  );
+};
+
 export default App;
