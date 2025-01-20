@@ -8,7 +8,7 @@ import { Description } from "@/components/desc/desc";
 import { SpeakersList } from "@/components/SpeakersList/SpeakersList";
 import TopBanner from "@/components/XHero/XHero";
 import dynamic from "next/dynamic";
-
+import { FC } from "react";
 
 // Sample data for each year
 const yearContent: {
@@ -239,9 +239,12 @@ const yearContent: {
     ],
   },
 };
-const GalleryApp = dynamic(() => import('@/components/App').then(mod => mod.default), {
-  ssr: false, // Optional: Set to false if you want to disable server-side rendering for this component
-});
+const GalleryApp = dynamic(
+  () => import("@/components/App").then((mod) => mod.default),
+  {
+    ssr: false, // Optional: Set to false if you want to disable server-side rendering for this component
+  }
+);
 export default function RewindPage() {
   const [selectedYear, setSelectedYear] = useState<number>(2024);
   const [isLoading, setIsLoading] = useState(true);
@@ -301,7 +304,7 @@ export default function RewindPage() {
               <Description description={content.description} />
               <SpeakersList speakers={content.speakers} />
               {/* Replace Gallery with the App component */}
-              <div className="h-[80vh]">
+              <div style={{ overflow: "hidden" }} className="h-[80vh]">
                 <GalleryApp />
               </div>
             </div>

@@ -13,6 +13,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import NakerEffect from "../starHero/starHero";
 
 const teamMembers = [
   {
@@ -80,46 +81,6 @@ const teamMembers = [
 export default function AboutPage() {
   return (
     <main className="min-h-screen bg-black text-white">
-      <section className="relative h-[70vh] overflow-hidden">
-        <div className="absolute inset-0 z-99">
-          <video autoPlay loop muted className="object-cover w-full h-full">
-            <source src="/videos/team.mp4" />
-            Your browser does not support the video tag.
-          </video>
-        </div>
-        <div className="absolute inset-0 bg-gradient-to-r from-black via-black/50 to-transparent">
-          <div className="container mx-auto px-4 h-full flex items-center">
-            <div className="w-full max-w-4xl mx-auto text-center">
-              <motion.h1
-                className="text-6xl font-bold mb-6"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8 }}
-              >
-                TEDx<span className="text-[#FF3A3A]">Team</span>
-              </motion.h1>
-              <motion.p
-                className="text-lg mb-8"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.4, duration: 0.8 }}
-              >
-                Meet the passionate individuals behind our TEDx event.
-              </motion.p>
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.8, duration: 0.8 }}
-              >
-                <Button className="bg-[#FF3A3A] hover:bg-[#FF3A3A]/90 text-white text-lg px-8 py-3">
-                  Learn More
-                </Button>
-              </motion.div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* TED and TEDx Explanation Section */}
       <section className="py-20 bg-gradient-to-b from-black to-[#1A0000] relative overflow-hidden">
         <div className="container mx-auto px-4 relative z-10">
@@ -153,6 +114,50 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+      {/* About the Theme Section */}
+      <section className="py-20 bg-[#1A0000] relative overflow-hidden">
+        <div className="container mx-auto px-4 relative z-10">
+          <h2 className="text-4xl font-bold mb-12 text-center text-[#FF3A3A]">
+            Our Event Theme
+          </h2>
+          <Card className="bg-black/50 border border-[#FF3A3A]/20 overflow-hidden rounded-lg">
+            <CardContent className="p-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                {/* Theme Description */}
+                <div className="text-center md:text-left md:order-1">
+                  <h3 className="text-3xl font-bold mb-4 text-[#FF3A3A]">
+                    The Future of Innovation
+                  </h3>
+                  <p className="text-lg text-white mb-6">
+                    Our TEDx event is themed around innovation — exploring the
+                    cutting-edge ideas shaping the future. From technological
+                    breakthroughs to groundbreaking concepts in society, we aim
+                    to spark creativity and discussion on how we can drive the
+                    future forward.
+                  </p>
+                  <Button className="bg-[#FF3A3A] hover:bg-[#FF3A3A]/90 text-white text-lg px-6 py-3">
+                    Learn More
+                  </Button>
+                </div>
+
+                {/* Theme Image */}
+                <div className="relative w-full h-80 rounded-lg overflow-hidden md:order-2">
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent z-10 rounded-lg" />
+                  <Image
+                    src="/images/theme.jpeg"
+                    alt="Event Theme"
+                    layout="fill"
+                    objectFit="cover"
+                    className="object-center w-full h-full z-0 filter brightness-90 rounded-lg"
+                  />
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center"></div>
+        </div>
+      </section>
+
       <section className="py-20 bg-gradient-to-b from-[#1A0000] to-black">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold mb-12 text-center text-[#FF3A3A]">

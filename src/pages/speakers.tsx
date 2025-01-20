@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import dynamic from "next/dynamic";
 import CardGrid from "../components/Speakers/speakerGrid"; // Keep CardGrid import here
+import CardSpeaker from "@/components/speakersGrid/speakersGrid";
 
 const SpeakersPage: React.FC = () => {
   const [vantaEffect, setVantaEffect] = useState<any>(null);
@@ -15,18 +16,18 @@ const SpeakersPage: React.FC = () => {
         const module = await import("vanta/src/vanta.fog");
         VANTA = module.default;
         setVantaEffect(
-            VANTA({
-                el: vantaRef.current,
-                mouseControls: true,
-                touchControls: true,
-                gyroControls: false,
-                minHeight: 200.0,
-                minWidth: 200.0,
-                highlightColor: 0xff0000,
-                midtoneColor: 0x4b160e,
-                lowlightColor: 0x660808,
-                baseColor: 0x1e0e0e,
-              })
+          VANTA({
+            el: vantaRef.current,
+            mouseControls: true,
+            touchControls: true,
+            gyroControls: false,
+            minHeight: 200.0,
+            minWidth: 200.0,
+            highlightColor: 0xff0000,
+            midtoneColor: 0x4b160e,
+            lowlightColor: 0x660808,
+            baseColor: 0x552727,
+          })
         );
       })();
     }
@@ -80,7 +81,7 @@ const SpeakersPage: React.FC = () => {
       </div>
 
       {/* Speakers Cards Section */}
-        <div
+      <div
         style={{
             position: "relative",
             zIndex: 2,
@@ -89,9 +90,9 @@ const SpeakersPage: React.FC = () => {
             paddingTop: "1rem", // Reduced space above cards
             paddingBottom: "3rem", // Added space below the last card
         }}
-    >
-  <CardGrid />
-</div>
+      >
+        <CardGrid />
+      </div>
     </div>
   );
 };
