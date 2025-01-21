@@ -82,7 +82,7 @@ export default function AboutPage() {
   return (
     <main className="min-h-screen bg-black text-white">
       {/* TED and TEDx Explanation Section */}
-      <section className="py-20 bg-gradient-to-b from-black to-[#1A0000] relative overflow-hidden">
+      <section className="py-20 bg-gradient-to-b from-black to-[#000000] relative overflow-hidden">
         <div className="container mx-auto px-4 relative z-10">
           <h2 className="text-4xl font-bold mb-12 text-center text-[#FF3A3A]">
             About TED and TEDx
