@@ -17,18 +17,18 @@ const speakers = [
       "John Doe is a tireless climate change activist whose work has inspired millions to take action against global warming. Through his grassroots campaigns and collaborations with leading environmental organizations, John has been instrumental in promoting sustainable living practices and pushing for policy changes to address the climate crisis. His innovative approaches to community engagement have created a ripple effect of positive environmental action across the globe.",
   },
   {
-    name: "Sarah Johnson",
+    name: "Kim Jon Un",
     title: "Quantum Computing Pioneer",
     image: "/speakers/sarah-johnson.jpg",
     longDescription:
       "Sarah Johnson is at the forefront of quantum computing research, working to harness the power of quantum mechanics to solve complex computational problems. Her work in quantum algorithms and error correction has paved the way for more stable and powerful quantum systems. Sarah's vision for the future of computing extends beyond theoretical research, as she actively collaborates with industry partners to bring quantum computing applications to life in fields such as cryptography, drug discovery, and financial modeling.",
   },
   {
-    name: "Michael Chen",
+    name: "Pratham Chaudhary",
     title: "Neuroscience Innovator",
-    image: "/speakers/michael-chen.jpg",
+    image: "/images/hero.png",
     longDescription:
-      "Michael Chen's groundbreaking work in neuroscience and brain-computer interfaces is opening new possibilities for treating neurological disorders and enhancing human cognitive abilities. His research focuses on developing non-invasive neural interfaces that can restore movement to paralyzed individuals and provide new communication channels for those with severe motor disabilities. Michael's innovations are not only pushing the boundaries of neurotechnology but also raising important questions about the future of human-machine interaction and cognitive enhancement.",
+      "Pratham Chaudhary will be coming along with one of the speakers.",
   },
   {
     name: "Emily Rodriguez",
