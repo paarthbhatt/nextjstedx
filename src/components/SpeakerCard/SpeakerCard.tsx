@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
+import { TeamMemberX } from "../TeamMemberX/TeamMemberX";
 
 interface SpeakerCardProps {
   name: string;
@@ -45,8 +46,7 @@ const SpeakerCard: React.FC<SpeakerCardProps> = ({
           </svg>
         </div>
         {/* Image Above */}
-        <div className="relative w-full h-[70%] grayscale group-hover:grayscale-0 transition-all duration-200">
-          {" "}
+        <div className="relative w-full h-[75%] grayscale group-hover:grayscale-0 transition-all duration-200">
           {/* Faster grayscale transition */}
           <Image
             src={image || "/placeholder.svg"}
@@ -63,7 +63,7 @@ const SpeakerCard: React.FC<SpeakerCardProps> = ({
           <p className="text-red-600">{title}</p>
         </div>
         {/* Hover Effect */}
-        <div className="absolute bottom-0 left-0 w-full h-1 bg-red-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-10" />{" "}
+        <div className="absolute bottom-0 left-0 w-full h-1 bg-red-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-10" />
         {/* Faster hover line transition */}
       </motion.div>
 
@@ -89,6 +89,11 @@ const SpeakerCard: React.FC<SpeakerCardProps> = ({
                 objectPosition="center"
                 quality={100}
               />
+
+              <div className="absolute inset-0 z-[-10] transform scale-x-[1.75] scale-y-[1.75]">
+                <TeamMemberX className="text-red-600" />{" "}
+                {/* Apply text color to the TeamMemberX component */}
+              </div>
 
               {/* Gradient Overlay and Details */}
               <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-transparent">

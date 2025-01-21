@@ -39,26 +39,20 @@ const SpeakersPage: React.FC = () => {
 
   return (
     <div style={{ minHeight: "100vh", position: "relative" }}>
-      {/* Vanta Effect Section */}
       <div
+        className="md:min-h-[80vh] min-h-[70vh] align-items-center flex flex-col"
         ref={vantaRef}
         style={{
-          minHeight: "80vh",
           position: "relative",
-          display: "flex",
-          flexDirection: "column",
           justifyContent: "center",
           alignItems: "center",
           textAlign: "center",
           padding: "2rem",
         }}
       >
-        {/* Add Beautiful Typography */}
         <h1
+          className="md:text-7xl text-5xl font-bold mb-4 text-white mt-14 md:mt-0"
           style={{
-            fontSize: "4rem",
-            fontWeight: "bold",
-            color: "white",
             textShadow: "2px 2px 10px rgba(0, 0, 0, 0.8)",
             marginBottom: "1rem",
           }}
@@ -66,10 +60,8 @@ const SpeakersPage: React.FC = () => {
           Our Esteemed Speakers
         </h1>
         <p
+          className="text-lg md:text-2xl max-w-800 text-gray-300 mb-4"
           style={{
-            fontSize: "1.5rem",
-            color: "#ccc",
-            maxWidth: "800px",
             lineHeight: "1.8",
             textShadow: "1px 1px 5px rgba(0, 0, 0, 0.5)",
           }}
@@ -78,10 +70,7 @@ const SpeakersPage: React.FC = () => {
           who are set to share their valuable insights and experiences.
         </p>
       </div>
-
-      {/* Speakers Cards Section */}
-      <div className="relative z-10 bg-black"
-      >
+      <div className="relative z-10 bg-black">
         <CardSpeaker />
       </div>
     </div>
