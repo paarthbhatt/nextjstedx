@@ -25,13 +25,16 @@ const useMorphingText = (texts: string[]) => {
       current2.style.opacity = `${Math.pow(fraction, 0.4) * 100}%`;
 
       const invertedFraction = 1 - fraction;
-      current1.style.filter = `blur(${Math.min(8 / invertedFraction - 8, 100)}px)`;
+      current1.style.filter = `blur(${Math.min(
+        8 / invertedFraction - 8,
+        100
+      )}px)`;
       current1.style.opacity = `${Math.pow(invertedFraction, 0.4) * 100}%`;
 
       current1.textContent = texts[textIndexRef.current % texts.length];
       current2.textContent = texts[(textIndexRef.current + 1) % texts.length];
     },
-    [texts],
+    [texts]
   );
 
   const doMorph = useCallback(() => {
@@ -95,14 +98,17 @@ interface MorphingTextProps {
 
 const Texts: React.FC<Pick<MorphingTextProps, "texts">> = ({ texts }) => {
   const { text1Ref, text2Ref } = useMorphingText(texts);
+
   return (
     <>
+      {/* First text layer */}
       <span
-        className="absolute inset-x-0 top-0 m-auto inline-block w-full"
+        className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center w-auto whitespace-nowrap "
         ref={text1Ref}
       />
+      {/* Second text layer */}
       <span
-        className="absolute inset-x-0 top-0 m-auto inline-block w-full"
+        className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center w-auto whitespace-nowrap "
         ref={text2Ref}
       />
     </>
@@ -133,13 +139,12 @@ const SvgFilters: React.FC = () => (
 const MorphingText: React.FC<MorphingTextProps> = ({ texts, className }) => (
   <div
     className={cn(
-      "relative mx-auto h-16 w-full max-w-screen-md text-center font-sans text-[40pt] font-bold leading-none [filter:url(#threshold)_blur(0.6px)] md:h-24 lg:text-[6rem]",
-      className,
+      "relative mx-auto h-16 w-full max-w-screen-md text-center font-sans text-[30pt] font-bold leading-none [filter:url(#threshold)_blur(0.6px)] md:h-24 lg:text-[6rem] flex items-center",
+      className
     )}
   >
     <Texts texts={texts} />
     <SvgFilters />
   </div>
 );
-
 export default MorphingText;
