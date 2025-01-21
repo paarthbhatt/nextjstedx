@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import dynamic from "next/dynamic";
-import CardGrid from "../components/Speakers/speakerGrid"; // Keep CardGrid import here
+import dynamic from "next/dynamic";;
 import CardSpeaker from "@/components/speakersGrid/speakersGrid";
 
 const SpeakersPage: React.FC = () => {
@@ -12,7 +11,7 @@ const SpeakersPage: React.FC = () => {
 
     if (!vantaEffect && typeof window !== "undefined") {
       (async () => {
-        // @ts-ignore: Suppressing type error for the Vanta module
+        // @ts-ignore:
         const module = await import("vanta/src/vanta.fog");
         VANTA = module.default;
         setVantaEffect(
