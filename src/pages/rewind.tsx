@@ -248,11 +248,21 @@ const GalleryApp = dynamic(
 export default function RewindPage() {
   const [selectedYear, setSelectedYear] = useState<number>(2024);
   const [isLoading, setIsLoading] = useState(true);
+  const [isGalleryFocused, setIsGalleryFocused] = useState(false);
 
   useEffect(() => {
     setIsLoading(true);
     setTimeout(() => setIsLoading(false), 500); // Simulating content load
   }, [selectedYear]);
+
+  useEffect(() => {
+    if (isGalleryFocused) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+    return () => { document.body.style.overflow = "auto"; };
+  }, [isGalleryFocused]);
 
   const content = yearContent[selectedYear];
 
@@ -304,7 +314,10 @@ export default function RewindPage() {
               <Description description={content.description} />
               <SpeakersList speakers={content.speakers} />
               {/* Replace Gallery with the App component */}
-              <div style={{ overflow: "hidden" }} className="h-[80vh]">
+              <div
+               className="h-[80vh] overflow-hidden relative"
+               onMouseEnter={() => setIsGalleryFocused(true)}
+               onMouseLeave={() => setIsGalleryFocused(false)}>
                 <GalleryApp />
               </div>
             </div>
