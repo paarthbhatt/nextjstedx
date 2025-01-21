@@ -21,7 +21,7 @@ const Ticket = () => {
   useEffect(() => {
     let list = fontArray
     for (let font = 0; font < list.length; font++) {
-      setFonts;
+      setFonts(list[font]);
     }
   }, [])
   return (

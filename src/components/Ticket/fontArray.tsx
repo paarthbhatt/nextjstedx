@@ -38,9 +38,6 @@ const comic = Comic_Neue({
     subsets:['latin'],
 })
 
-const fontArray = () => {
-  const Farray = [mona, mont, playwrite, JB, doto, playfair, nun, comic]
-  return (Farray)
-}
+const fontArray = [mona, mont, playwrite, JB, doto, playfair, nun, comic]
 
 export default fontArray
